@@ -1,0 +1,52 @@
+<!-- templates/yourapp/course_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Course List</h2>
+  <div class="course-table-container">
+    <table class="course-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Level</th>
+          <th>Price</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cartorder in object_list %}
+          <tr>
+            <td>{{ cartorder.user }}</td>
+
+            <td>{{ cartorder.total_amt }}</td>
+            <td>{{ cartorder.paid_status }}</td>
+            <td>{{ cartorder.order_dt }}</td>
+            <td>{{ cartorder.order_status }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  <style>
+    .course-table-container {
+      margin: 20px; /* Adjust the margin as needed */
+    }
+
+    .course-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .course-table th, .course-table td {
+      border: 1px solid #ddd; /* Border style and color */
+      padding: 8px; /* Adjust the padding as needed */
+      text-align: left;
+    }
+
+    .course-table th {
+      background-color: #f2f2f2; /* Header background color */
+    }
+  </style>
+{% endblock %}

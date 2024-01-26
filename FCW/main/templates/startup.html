@@ -1,0 +1,582 @@
+{% load static %}
+<html lang="en">
+<head>
+	<title>Ecommerce Bootstrap Template</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}" />
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
+
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+	<!-- Bootstrap 4 JS -->
+	<script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+	<!-- CustomJs -->
+
+	<script type="text/javascript" src="{% static 'custom.js' %}"></script>
+
+
+    <!-- swiper CSS cdn link  -->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'fontawesome-free/css/all.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
+
+	<script src="{% static 'swiper/swiper-bundle.min.js' %}"></script>
+
+	<script src="{% static 'script.js' %}"></script>
+
+	 <style>
+
+
+    	.nav{
+    		display: justify;
+
+    	}
+
+        /* Styling for the Get-in-Touch dropdown */
+		.nav-item.dropdown {
+		  display: inline-block;
+		  position: relative;
+		}
+
+		.nav-item.dropdown .nav-link {
+		  color: white;
+		}
+
+		.nav-item.dropdown .dropdown-menu {
+		  display: none;
+		  position: absolute;
+		  background-color: #333;
+		  min-width: 10px;
+		}
+
+		.nav-item.dropdown:hover .dropdown-menu {
+		  display: block;
+		}
+
+
+
+		.nav-item.dropdown .dropdown-item:hover {
+		  background-color: #555;
+		}
+
+            /* Override left and right spacing for each nav item */
+        .header .navbar a {
+          margin-right: 15px; /* Adjust as needed for right spacing */
+          margin-left: 15px;  /* Adjust as needed for left spacing */
+        }
+
+        /* Override left and right spacing for dropdown items */
+        .header .navbar .dropdown-menu a {
+          margin-right: 0; /* Adjust as needed for right spacing */
+          margin-left: 0;  /* Adjust as needed for left spacing */
+        }
+
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 150px; /* Adjust the height as needed */
+      background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Initial gradient background */
+      background-size: cover;
+      transition: background 0.5s; /* Add smooth transition for the background */
+    }
+
+    /* Add some padding to create space when the header becomes static */
+    .content {
+      padding-top: 120px; /* Adjust the value based on the header height */
+    }
+
+    .navbar a,
+    .dropdown-item {
+        color: white !important;
+    }
+  </style>
+
+</head>
+
+<body>
+	<!-- header section starts  -->
+
+    <header class="header" id="myHeader">
+		<a href="/" class="logo">FCW <span> FITNESS</span></a>
+
+		<nav class="navbar">
+
+		<li><a href="/">Home</a></li>
+
+		<li><a href="https://timesofindia.indiatimes.com/life-style/health-fitness/health-news">Fit Online</a></li>
+
+		<!--<a href="#">Profile</a>-->
+
+		<li class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Account
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+	        		<a class="dropdown-item" href="{% url 'login' %}">Login</a>
+		          <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>
+
+		        </div>
+		</li>
+
+		</nav>
+
+	</header>
+
+
+    <section class="home">
+      <div class="swiper home-slider">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide box"
+            style="
+              background: linear-gradient(
+                  rgba(100, 13, 3, 0.7),
+                  rgba(8, 1, 1, 0.7)
+                ),
+                url({% static 'pics/home-1.jpg' %});
+            "
+          >
+            <div class="content">
+              <h3>Join us today!</h3>
+              <p>'The body achieves what the mind believes.'</p>
+              <div class="button">
+                <a href="{% url 'signup' %}" class="btn btn-1">GET STARTED</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="swiper-slide box"
+            style="
+              background: linear-gradient(
+                rgba(100, 13, 3, 0.7),
+                  rgba(8, 1, 1, 0.7)
+                ),
+                url({% static 'pics/home-2.jpg' %});
+            "
+          >
+            <div class="content">
+              <h3>health is wealth</h3>
+              <p>
+                Take care of your body. It's the only place you have to live.
+              </p>
+              <div class="button">
+                <a href="{% url 'signup' %}" class="btn btn-1">GET STARTED</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="iframe-container">
+        <iframe
+          width="350"
+          height="430"
+          allow="microphone;"
+          src="https://console.dialogflow.com/api-client/demo/embedded/210669f8-c252-4eae-8c1d-c8aa7cb800b1"
+        ></iframe>
+      </div>
+    </section>
+
+
+
+
+	<section class="feature">
+	  <h1 class="heading">DAILY <span> ACTIVITIES</span></h1>
+
+	  <div class="swiper feature-slider">
+		<div class="swiper-wrapper">
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <a
+				href="https://www.artofliving.org/yoga/yoga-poses/lotus-pose-padmasana"
+				><img src="{% static 'pics/groupworkout.png' %}" alt="GROUP WORKOUT"
+			  /></a>
+			</div>
+			<div class="content">
+			  <h3>GROUP WORKOUT</h3>
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <a
+				href="https://www.artofliving.org/in-en/yoga/yoga-poses/mountain-pose-tadasana"
+				><img src="{% static 'pics/vr.webp' %}" alt="VR WORKOUT"
+			  /></a>
+			</div>
+			<div class="content">
+			  <h3>VR WORKOUT</h3>
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <a
+				href="https://srisrischoolofyoga.org/na/blog/uttanasana-standing-forward-bend-for-strong-legs-and-back/"
+				><img src="{% static 'pics/bestratedtrainers.jpg' %}" alt="TRAINERS"
+			  /></a>
+			</div>
+			<div class="content">
+			  <h3>HALL OF FAME</h3>
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <a
+				href="https://www.artofliving.org/in-en/yoga/yoga-poses/gomukhasana-cow-pose"
+				><img src="{% static 'pics/activites.jpg' %}" alt="ACTIVITIES"
+			  /></a>
+			</div>
+			<div class="content">
+			  <h3>ACTIVITIES</h3>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+
+
+
+	<!-- Trainer section -->
+	<section class="trainers">
+	  <h1 class="heading">Expert <span>trainers</span></h1>
+
+	  <div class="swiper trainer-slider">
+		<div class="swiper-wrapper">
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/trainer-1.jpg' %}" alt="" />
+			</div>
+			<div class="name">
+			  <h1>Yasmin Karachiwala</h1>
+			  <p>Trainer to the stars.</p>
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/trainer-2.jpg' %}" alt="" />
+			</div>
+			<div class="name">
+			  <h1>Shilpa Shetty</h1>
+			  <p>Believes that fitness is a lifestyle, not a passing trend.</p>
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/trainer-3.jpg' %}" alt="" />
+			</div>
+			<div class="name">
+			  <h1>Ranveer Allahbadia</h1>
+			  <p>Most popular Youtube fitness influencer.</p>
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/trainer-4.jpg' %}" alt="" />
+			</div>
+			<div class="name">
+			  <h1>Tanvi Mehra</h1>
+			  <p>Expert in mind and body workouts.</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<!-- testimonial section starts  -->
+	<section class="testimonial">
+	  <h1 class="heading">TOP<span> ARTICLES</span></h1>
+
+	  <div class="box-container">
+		<div class="box">
+		  <div class="image">
+			<img src="{% static 'pics/user.png' %}" alt="" />
+		  </div>
+		  <div class="name">
+			<h1>From Sedentary to Active Lifestyle</h1>
+			<p>Emma's <span>Transformation</span></p>
+		  </div>
+		  <p>
+			Emma, a 32-year-old office worker, had always struggled with her
+			weight due to a sedentary job and poor eating habits.With the help
+			of a nutritionist, Emma revamped her diet, focusing on whole foods,
+			lean proteins, and balanced portions. Over time, she lost 50 pounds
+			and gained confidence she never thought possible. Emma's journey
+			taught her that consistency and patience are key.
+		  </p>
+		</div>
+
+		<div class="box">
+		  <div class="image">
+			<img src="{% static 'pics/user.png' %}" alt="" />
+		  </div>
+		  <div class="name">
+			<h1>Overcoming Challenges for a Healthier Life</h1>
+			<p>Mark's <span>Triumph</span></p>
+		  </div>
+		  <p>
+			Mark, a 45-year-old father of two, found himself in a vicious cycle
+			of stress-eating and neglecting his health.With the support of a
+			personal trainer and therapist, Mark addressed not only his physical
+			health but also the emotional triggers that led to unhealthy habits.
+			He gradually integrated a mix of strength training, cardio, and
+			mindful eating practices. Despite setbacks, Mark stayed committed
+			and lost 70 pounds over the course of a year.
+		  </p>
+		</div>
+
+		<div class="box">
+		  <div class="image">
+			<img src="{% static 'pics/user.png' %}" alt="" />
+		  </div>
+		  <div class="name">
+			<h1>Small Steps, Big Benefits</h1>
+			<p>Stephanie <span>Laska</span></p>
+		  </div>
+		  <p>
+			Growing up, Stephanie Laska, 44, never worked out. She chose music
+			class over P.E., and had Kool-Aid and Froot Loops every day.After a
+			few months of putting it off, she decided to just walk. Not long
+			after, when she was walking her typical route around a tennis court,
+			she decided to pick it up and run the length of one side. Then, she
+			ran two sides, then three, then a full loop, until she ran her first
+			mile in 2014.
+		  </p>
+		</div>
+	  </div>
+	</section>
+	<!-- testimonial section ends  -->
+
+
+	<!-- blogs section starts  -->
+
+	<section class="blogs">
+	  <h1 class="heading">OUR<span> RECOMMENDATIONS</span></h1>
+
+	  <div class="swiper blogs-slider">
+		<div class="swiper-wrapper">
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/diet-1.webp' %}" alt="Ketogenic Diet" />
+			</div>
+			<div class="content">
+			  <h3>The Ketogenic Diet</h3>
+			  <p>
+				The keto diet, is a low-carbohydrate eating plan that promotes
+				the body's shift into ketosis, where it burns fat for fuel
+				instead of carbs. By limiting carb intake and increasing healthy
+				fats, the body produces ketones, which serve as an alternative
+				energy source.
+			  </p>
+			</div>
+			<div class="button">
+			  <a
+				href="https://www.healthline.com/nutrition/ketogenic-diet-101"
+				class="btn"
+			  >I'm interested!</a
+			  >
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/diet-2.webp' %}" alt="Intermittent Fasting" />
+			</div>
+			<div class="content">
+			  <h3>Intermittent Fasting</h3>
+			  <p>
+				Intermittent fasting is an eating pattern that alternates
+				between periods of eating and fasting. It doesn't prescribe
+				specific foods but focuses on when you eat. Common methods
+				include the 16/8 method (16 hours of fasting, 8 hours of eating)
+				or the 5:2 method (eating normally for 5 days, restricting
+				calories for 2 days).
+			  </p>
+			</div>
+			<div class="button">
+			  <a
+				href="https://www.healthline.com/nutrition/intermittent-fasting-guide"
+				class="btn"
+			  >I'm interested!</a
+			  >
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/diet-3.jpg' %}" alt="Veganism" />
+			</div>
+			<div class="content">
+			  <h3>Veganism</h3>
+			  <p>
+				Veganism is a lifestyle and dietary choice that excludes all
+				animal products, including meat, dairy, eggs, and other
+				animal-derived ingredients. Followers of veganism embrace
+				plant-based foods, relying on fruits, vegetables, grains,
+				legumes, nuts, and seeds for their nutritional needs.
+			  </p>
+			</div>
+			<div class="button">
+			  <a
+				href="https://www.healthline.com/nutrition/what-is-a-vegan"
+				class="btn"
+			  >I'm interested!</a
+			  >
+			</div>
+		  </div>
+
+		  <div class="swiper-slide box">
+			<div class="image">
+			  <img src="{% static 'pics/diet-4.jpg' %}" alt="Gluten-free diet" />
+			</div>
+			<div class="content">
+			  <h3>Gluten-free diet</h3>
+			  <p>
+				A gluten-free diet involves avoiding foods that contain gluten,
+				a protein found in wheat, barley, and rye. It's primarily
+				followed by individuals with celiac disease. Gluten-free
+				alternatives include foods made from rice, quinoa, corn, and
+				other gluten-free grains, along with naturally gluten-free foods
+				like fruits, vegetables, and proteins.
+			  </p>
+			</div>
+			<div class="button">
+			  <a
+				href="https://www.healthline.com/nutrition/gluten-free-diet"
+				class="btn"
+			  >I'm interested!</a
+			  >
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+	<!-- blogs section ends  -->
+
+	<!-- footer section starts  -->
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h1>About</h1>
+          <div class="text">
+            <p>
+              At FCW FITNESS , our passionate team of fitness enthusiasts,
+              trainers, nutritionists, and wellness experts is dedicated to
+              empowering individuals on their fitness journey. Through a
+              holistic approach encompassing physical, mental, and emotional
+              well-being, we provide the tools, guidance, and inspiration needed
+              to achieve transformative health goals and cultivate a balanced
+              lifestyle.
+            </p>
+          </div>
+          <div class="icon">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h1>Contact Info</h1>
+          <div class="icons">
+            <a href="#"
+              ><i class="fas fa-map-marker-alt"></i>DSCE, Kumarswamy Layout,
+              Bangalore.
+            </a>
+            <a href="#"><i class="fas fa-phone-alt"></i>+91 9380029913</a>
+            <a href="#"><i class="fas fa-envelope"></i>fcw@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h1>Quick links</h1>
+          <div class="icons">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a
+              href="https://timesofindia.indiatimes.com/life-style/health-fitness/health-news"
+              >News</a
+            >
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="credit">
+        created by <span>FCW Team</span> | All Rights Reserved
+      </div>
+    </section>
+
+    <!-- footer section ends  -->
+
+</body>
+</html>
+
+<!-- Swiper Initialization Script -->
+<!-- Swiper Initialization Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var homeSwiper = new Swiper('.home-slider', {
+      autoplay: {
+        delay: 2000,  // Set the delay to 2 seconds
+        disableOnInteraction: false,
+      },
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    var featureSwiper = new Swiper('.feature-slider', {
+      autoplay: {
+        delay: 2000,  // Set the delay to 2 seconds
+        disableOnInteraction: false,
+      },
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+    });
+
+    var trainerSwiper = new Swiper('.trainer-slider', {
+      autoplay: {
+        delay: 2000,  // Set the delay to 2 seconds
+        disableOnInteraction: false,
+      },
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+    });
+
+    var blogsSwiper = new Swiper('.blogs-slider', {
+      autoplay: {
+        delay: 2000,  // Set the delay to 2 seconds
+        disableOnInteraction: false,
+      },
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: true,
+    });
+  });
+</script>
+

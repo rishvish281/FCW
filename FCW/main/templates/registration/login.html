@@ -1,0 +1,35 @@
+{% extends 'main/acountbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+    /* Custom CSS for black border on input boxes */
+    .form-group input {
+        border: 1px solid #000;
+        width: 600px;
+        height: 40px;
+    }
+</style>
+<main class="container my-4">
+    <!-- Featured Products -->
+    <div class="card mt-4">
+        <h3 class="card-header bg-primary text-white">Login</h3>
+        <div class="card-body">
+            <form method="post" class="my-4">
+                {% csrf_token %}
+                {{form.as_table}}
+                <div class="form-group row mt-4">
+                    <div class="col-md-6 offset-md-3">
+                        <input type="submit" value="Login" class="btn btn-primary btn-block" />
+                    </div>
+                </div>
+            </form>
+            <p class="text-center">
+                <a href="{% url 'password_reset' %}" class="text-danger">Forgot Password?</a>
+            </p>
+            <p class="text-center">
+                If you are not registered, please <a href="{% url 'signup' %}">sign up here</a>.
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}

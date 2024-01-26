@@ -1,0 +1,41 @@
+{% extends 'main/acountbase.html' %}
+{% load static %}
+{% block content %}
+<style>
+    /* Custom CSS for black border on input boxes */
+    .form-group input {
+        border: 1px solid #000;
+        width: 600px;
+        height: 40px;
+    }
+</style>
+<main class="container my-4">
+    <!-- SignUp Form -->
+    <div class="card my-4">
+        <div class="card-header bg-primary text-white">
+            <h3 style="color: white;">Sign Up</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group row">
+                        <label for="{{ field.id_for_label }}" class="col-md-3 col-form-label">{{ field.label }}</label>
+                        <div class="col-md-9">
+                            {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="form-group row mt-4">
+                    <div class="col-md-6 offset-md-3">
+                        <center><input type="submit" value="Register" class="btn btn-primary"></center>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End SignUp Form -->
+</main>
+{% endblock %}
+

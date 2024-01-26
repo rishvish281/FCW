@@ -1,0 +1,308 @@
+{% load static %}<!-- add_course_success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Added Successfully</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}" />
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
+
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+	<!-- Bootstrap 4 JS -->
+	<script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+	<!-- CustomJs -->
+	<link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" />
+
+	<script type="text/javascript" src="{% static 'custom.js' %}"></script>
+
+	<!-- THIS IS THE OUR FRONT END  -->
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'fontawesome-free/css/all.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
+
+	<script src="{% static 'swiper/swiper-bundle.min.js' %}"></script>
+
+	<script src="{% static 'script.js' %}"></script>
+    <!-- Add your CSS links or stylesheets here if needed -->
+        <style>
+
+
+    	.nav{
+    		display: justify;
+
+    	}
+
+        /* Styling for the Get-in-Touch dropdown */
+		.nav-item.dropdown {
+		  display: inline-block;
+		  position: relative;
+		}
+
+		.nav-item.dropdown .nav-link {
+		  color: white;
+		}
+
+		.nav-item.dropdown .dropdown-menu {
+		  display: none;
+		  position: absolute;
+		  background-color: #333;
+		  min-width: 10px;
+		}
+
+		.nav-item.dropdown:hover .dropdown-menu {
+		  display: block;
+		}
+
+
+
+		.nav-item.dropdown .dropdown-item:hover {
+		  background-color: #555;
+		}
+
+
+        .header .navbar a {
+          margin-right: 15px; /* Adjust as needed for right spacing */
+          margin-left: 15px;  /* Adjust as needed for left spacing */
+        }
+
+        /* Override left and right spacing for dropdown items */
+        .header .navbar .dropdown-menu a {
+          margin-right: 0; /* Adjust as needed for right spacing */
+          margin-left: 0;  /* Adjust as needed for left spacing */
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .header {
+          position: static;
+          top: 0;
+          width: 100%;
+          height: 150px; /* Adjust the height as needed */
+          background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Initial gradient background */
+          background-size: cover;
+          transition: background 0.5s; /* Add smooth transition for the background */
+        }
+
+        /* Add some padding to create space when the header becomes static */
+        .content {
+          padding-top: 120px; /* Adjust the value based on the header height */
+        }
+
+        *{
+        color: grey !important;
+        }
+
+		.navbar a,
+    .dropdown-item {
+        color: white !important;
+    }
+
+    </style>
+
+    <style>
+    /* Add your CSS styles here */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #wrapper {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+        <style>
+
+
+    a {
+        color: #3498db !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+    }
+
+    a:hover {
+        color: #217dbb !important;
+    }
+</style>
+
+</head>
+<div id="wrapper">
+<body>
+
+    <header class="header" id="myHeader">
+
+	<a href="{% url 'home' %}" class="logo">FCW <span> FITNESS</span></a>
+
+	<nav class="navbar">
+
+		<a href="{% url 'home' %}">Home</a>
+
+<!--		<li><a href="{% url 'counter:home' %}">CalorieApp</a></li>-->
+
+
+
+<!--        <li><a href="{% url 'myapp:index' %}">All Events</a></li>-->
+
+<!--        <li><a href="{% url 'category-list' %}">Browse Gyms</a></li>-->
+
+<!--        <li class="nav-item dropdown">-->
+<!--		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--		          <i class="fa fa-user"></i> Browse Gyms-->
+<!--		        </a>-->
+<!--		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--		        	<a class="dropdown-item" href="{% url 'category-list' %}">Location</a>-->
+<!--		        	<a class="dropdown-item" href="{% url 'brand-list' %}">Gym</a>-->
+<!--		        </div>-->
+<!--		</li>-->
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Get-in-Touch
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'category-list' %}">Browse Gyms</a>
+		        	<a class="dropdown-item" href="{% url 'add_course' %}">Add Gyms</a>
+		        </div>
+		</div>
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Powerups
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'counter:home' %}">CalorieApp</a>
+		        	<a class="dropdown-item" href="{% url 'myapp:index' %}">All Events</a>
+		        </div>
+
+		</div>
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Our Expert
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'nutrition' %}">Nutritionists</a>
+		        	<a class="dropdown-item" href="{% url 'trainer' %}">Trainers</a>
+		        </div>
+		</div>
+
+
+
+<!--        <li><a href="http://localhost:8501">Bot</a></li>-->
+
+<!--        <li class="nav-item dropdown">-->
+<!--            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>-->
+<!--        </li>-->
+
+		<div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> My Account
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        {% if user.is_authenticated %}
+		        	<a class="dropdown-item" href="{% url 'my_dashboard' %}">Dashboard</a>
+		        	<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>
+	        	{% else %}
+	        		<a class="dropdown-item" href="{% url 'login' %}">Login</a>
+		          <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>
+		        {% endif %}
+		        </div>
+		</div>
+
+<!--		<li>-->
+<!--		<form class="form-inline my-2 my-lg-0" action="/search">-->
+<!--		      <div class="input-group">-->
+<!--				  <input name="q" type="text" class="form-control" placeholder="search" />-->
+<!--				  <div class="input-group-append">-->
+<!--				    <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>-->
+<!--				  </div>-->
+<!--				</div>-->
+<!--		</form>-->
+<!--		</li>-->
+
+	</nav>
+
+</header>
+
+    <div style="margin-top: 10%;">
+		<center>
+        <h1>Course Added Successfully</h1>
+        <p>Your course has been successfully added.</p>
+        <p>Do you want to add another course? <a href="{% url 'add_course' %}" style="color: blue !important;">Add Course</a></p>
+        <!-- You can customize the success message or provide additional information here -->
+		</center>
+    </div>
+	<br><br><br><br>	<br><br><br><br><br><br><br><br><br><br>
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h1>About</h1>
+      <div class="text">
+        <p>
+          At FCW FITNESS , our passionate team of fitness enthusiasts,
+          trainers, nutritionists, and wellness experts is dedicated to
+          empowering individuals on their fitness journey. Through a
+          holistic approach encompassing physical, mental, and emotional
+          well-being, we provide the tools, guidance, and inspiration needed
+          to achieve transformative health goals and cultivate a balanced
+          lifestyle.
+        </p>
+      </div>
+      <div class="icon">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="box">
+      <h1>Contact Info</h1>
+      <div class="icons">
+        <a href="#"
+          ><i class="fas fa-map-marker-alt"></i>DSCE, Kumarswamy Layout,
+          Bangalore.
+        </a>
+        <a href="#"><i class="fas fa-phone-alt"></i>+91 9380029913</a>
+        <a href="#"><i class="fas fa-envelope"></i>fcw@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="box">
+      <h1>Quick links</h1>
+      <div class="icons">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a
+          href="https://timesofindia.indiatimes.com/life-style/health-fitness/health-news"
+          >News</a
+        >
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="credit">
+    created by <span>FCW Team</span> | All Rights Reserved
+  </div>
+</section>
+</body>
+</div>
+</html>

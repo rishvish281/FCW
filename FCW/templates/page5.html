@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page5</title>
+    <link rel="stylesheet" href="{% static 'assets/css/page5.css' %}">
+  </head>
+  <body>
+    <div class="center">
+        <div class="header">
+            <h1>What's your current weight enter in kilograms?</h1>
+            <p>This will help us determine your goals and monitor your progress.</p> 
+        </div>
+        <br>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            <div class="textfield">
+                <input type="number" required name="weight" value="{{ user_profile.weight }}" id="weightInput"/>
+                <label>Enter your weight.</label>
+            </div>
+            <input type="submit" value="Insert Record" onclick="alert('Record Inserted Successfully')" />
+            <input type="button" value="Continue" onclick="goToPage()"/>
+
+            <div class="signup" value="Login">
+                Don't stop until you're proud.
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToPage() {
+            window.location.href = 'page6';
+        }
+
+        const weightInput = document.getElementById('weightInput');
+        const poundsRadio = document.getElementById('btnradio2');
+
+        poundsRadio.addEventListener('change', function() {
+            if (this.checked) {
+                const weightInPounds = weightInput.value;
+                const weightInKgs = parseFloat((weightInPounds * 0.453592).toFixed(2));
+                weightInput.value = weightInKgs;
+            }
+        });
+    </script>
+  </body>
+</html>

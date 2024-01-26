@@ -1,0 +1,38 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'assets/css/pro1.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="profile-image">
+        <img src="{{ current_user_profile.profileimg.url }}" alt="Profile Image">
+      </div>
+      <div class="profile-details">
+        <h1>{{ current_user_profile.name }}</h1>
+        <p>Age: {{ current_user_profile.age }} | Gender: {{ current_user_profile.gender }}</p>
+      </div>
+    </div>
+    <div class="profile-info">
+      <p><strong>Interests:</strong> {{ current_user_profile.intrest }}</p>
+      <p><strong>Bio:</strong>{{ current_user_profile.bio }}</p>
+      <p><strong>Location:</strong> {{ current_user_profile.location }}</p>
+      <p><strong>Weight:</strong> {{ current_user_profile.weight }}</p>
+      <p><strong>Height:</strong> {{ current_user_profile.feet }} Feets and {{ current_user_profile.inches }}Inches</p>
+      <p><strong>Current goal:</strong> {{ current_user_profile.goal }}</p>
+      <p><strong>Training type:</strong> {{ current_user_profile.training }}</p>
+    </div>
+    <div class="profile-actions">
+      <button class="follow-btn">Follow</button>
+      <button class="view-profile-btn">View Profile</button>
+    </div>
+  </div>
+</body>
+</html>
+

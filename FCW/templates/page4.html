@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>Page4</title>
+    <link rel="stylesheet" href="{% static 'assets/css/page4.css' %}">
+</head>
+<body>
+    <div class="center">
+        <div class="header">
+            <h1>How tall are you?</h1>
+            <p>Your height helps us to determine other important body stats.</p>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="container">
+                <div class="input-group">
+                    <label for="feetInput">Feet:</label>
+                    <input type="number" id="feetInput" min="0" name="feet" value="{{ user_profile.feet }}">
+                </div>
+                <div class="input-group">
+                    <label for="inchesInput">Inches:</label>
+                    <input type="number" id="inchesInput" min="0" max="11" name="inches" value="{{ user_profile.inches }}">
+                </div>
+                <div class="buttons">
+                    <button type="button" id="increaseFeet">Feet++</button>
+                    <button type="button" id="decreaseFeet">Feet--</button>
+                    <button type="button" id="increaseInches">Inch++</button>
+                    <button type="button" id="decreaseInches">Inch--</button>
+                </div>
+            </div>
+            <input type="submit" value="Insert Record" onclick="alert('Record Inserted Successfully')" />
+            <input type="button" value="Continue" onclick="goToPage()"/>
+            <div class="signup" value="Login">
+                <!-- Not a member? <a href="signup.html">SignUp</a> -->
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToPage() {
+            window.location.href = 'page5';
+        }
+    </script>
+    <script>
+        let feet = {{ user_profile.feet }};
+        let inches = {{ user_profile.inches }};
+
+        const feetInput = document.getElementById("feetInput");
+        const inchesInput = document.getElementById("inchesInput");
+
+        document.getElementById("increaseFeet").addEventListener("click", () => {
+            feet++;
+            feetInput.value = feet;
+        });
+
+        document.getElementById("decreaseFeet").addEventListener("click", () => {
+            if (feet > 0) {
+                feet--;
+                feetInput.value = feet;
+            }
+        });
+
+        document.getElementById("increaseInches").addEventListener("click", () => {
+            if (inches < 11) {
+                inches++;
+            } else {
+                inches = 0;
+                feet++;
+                feetInput.value = feet;
+            }
+            inchesInput.value = inches;
+        });
+
+        document.getElementById("decreaseInches").addEventListener("click", () => {
+            if (inches > 0) {
+                inches--;
+            } else if (feet > 0) {
+                inches = 11;
+                feet--;
+                feetInput.value = feet;
+            }
+            inchesInput.value = inches;
+        });
+
+        feetInput.addEventListener("input", () => {
+            feet = parseInt(feetInput.value) || 0;
+        });
+
+        inchesInput.addEventListener("input", () => {
+            inches = parseInt(inchesInput.value) || 0;
+        });
+
+        // Function to redirect to the next page
+        function goToPage() {
+            window.location.href = 'page5';
+        }
+    </script>
+</body>
+</html>

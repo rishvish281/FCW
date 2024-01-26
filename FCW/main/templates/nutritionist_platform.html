@@ -1,0 +1,360 @@
+{% load static %}
+{% block content %}
+
+
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
+
+	<!-- CustomJs -->
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+<!--<header class="header", style="position: relative; background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); ,-->
+<!--                url({% static 'pics/home-1.jpg' %});">-->
+
+<!--	<a href="{% url 'home' %}" class="logo">FCW <span> FITNESS</span></a>-->
+
+<!--	<nav class="navbar">-->
+
+<!--		<li><a href="{% url 'home' %}">Home</a></li>-->
+
+<!--&lt;!&ndash;		<li>&ndash;&gt;-->
+<!--&lt;!&ndash;		<form class="form-inline my-2 my-lg-0" action="/search">&ndash;&gt;-->
+<!--&lt;!&ndash;		      <div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;				  <input name="q" type="text" class="form-control" placeholder="search" />&ndash;&gt;-->
+<!--&lt;!&ndash;				  <div class="input-group-append">&ndash;&gt;-->
+<!--&lt;!&ndash;				    <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>&ndash;&gt;-->
+<!--&lt;!&ndash;				  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;				</div>&ndash;&gt;-->
+<!--&lt;!&ndash;		</form>&ndash;&gt;-->
+<!--&lt;!&ndash;		</li>&ndash;&gt;-->
+
+<!--	</nav>-->
+
+<!--</header>-->
+<head>
+    <title>Nutritionist's Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to top, #640D03, #090101);
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 input {
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+        }
+        .nutritionist {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            align-items: center;
+        }
+        .nutritionist-info {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        button {
+            background: rgba(255, 255, 255, 0.171);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .stars {
+            display: flex;
+        }
+        .stars span {
+            margin-right: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 10px;
+            background: rgba(77, 77, 77, 0.458);
+            border-radius: 10px;
+        }
+        .modal-content {
+            background-color: linear-gradient(to top, #640D03, #090101);
+            background: linear-gradient(to top, #640D03, #090101);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+            	.nav{
+    		display: justify;
+
+    	}
+
+        /* Styling for the Get-in-Touch dropdown */
+		.nav-item.dropdown {
+		  display: inline-block;
+		  position: relative;
+		}
+
+		.nav-item.dropdown .nav-link {
+		  color: white;
+		}
+
+		.nav-item.dropdown .dropdown-menu {
+		  display: none;
+		  position: absolute;
+		  background-color: #333;
+		  min-width: 10px;
+		}
+
+		.nav-item.dropdown:hover .dropdown-menu {
+		  display: block;
+		}
+
+
+
+		.nav-item.dropdown .dropdown-item:hover {
+		  background-color: #555;
+		}
+
+
+        .header .navbar a {
+          margin-right: 15px; /* Adjust as needed for right spacing */
+          margin-left: 15px;  /* Adjust as needed for left spacing */
+        }
+
+        /* Override left and right spacing for dropdown items */
+        .header .navbar .dropdown-menu a {
+          margin-right: 0; /* Adjust as needed for right spacing */
+          margin-left: 0;  /* Adjust as needed for left spacing */
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .header {
+          position: static;
+          top: 0;
+          width: 100%;
+          height: 150px; /* Adjust the height as needed */
+          background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Initial gradient background */
+          background-size: cover;
+          transition: background 0.5s; /* Add smooth transition for the background */
+        }
+
+        /* Add some padding to create space when the header becomes static */
+        .content {
+          padding-top: 120px; /* Adjust the value based on the header height */
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <header class="header" id="myHeader">
+
+	<a href="{% url 'home' %}" class="logo">FCW <span> FITNESS</span></a>
+
+	<nav class="navbar">
+
+		<a href="{% url 'home' %}">Home</a>
+
+<!--		<li><a href="{% url 'counter:home' %}">CalorieApp</a></li>-->
+
+<!--        <li><a href="{% url 'core:dashboard' %}">Social Book</a></li>-->
+
+<!--        <li><a href="{% url 'myapp:index' %}">All Events</a></li>-->
+
+<!--        <li><a href="{% url 'category-list' %}">Browse Gyms</a></li>-->
+
+<!--        <li class="nav-item dropdown">-->
+<!--		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--		          <i class="fa fa-user"></i> Browse Gyms-->
+<!--		        </a>-->
+<!--		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--		        	<a class="dropdown-item" href="{% url 'category-list' %}">Location</a>-->
+<!--		        	<a class="dropdown-item" href="{% url 'brand-list' %}">Gym</a>-->
+<!--		        </div>-->
+<!--		</li>-->
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Get-in-Touch
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'category-list' %}">Browse Gyms</a>
+		        	<a class="dropdown-item" href="{% url 'core:dashboard' %}">Social Book</a>
+		        </div>
+		</div>
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Fitness Powerups
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'counter:home' %}">CalorieApp</a>
+		        	<a class="dropdown-item" href="{% url 'myapp:index' %}">All Events</a>
+		        </div>
+
+		</div>
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Our Expert
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'nutrition' %}">Nutritionists</a>
+		        	<a class="dropdown-item" href="{% url 'trainer' %}">Trainers</a>
+		        </div>
+		</div>
+
+<!--        <li><a href="{% url 'core:dashboard' %}">Dashboard</a></li>-->
+
+<!--        <li><a href="http://localhost:8501">Bot</a></li>-->
+
+<!--        <li class="nav-item dropdown">-->
+<!--            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>-->
+<!--        </li>-->
+
+		<div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> My Account
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        {% if user.is_authenticated %}
+		        	<a class="dropdown-item" href="{% url 'my_dashboard' %}">Dashboard</a>
+		        	<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>
+	        	{% else %}
+	        		<a class="dropdown-item" href="{% url 'login' %}">Login</a>
+		          <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>
+		        {% endif %}
+		        </div>
+		</div>
+
+<!--		<li>-->
+<!--		<form class="form-inline my-2 my-lg-0" action="/search">-->
+<!--		      <div class="input-group">-->
+<!--				  <input name="q" type="text" class="form-control" placeholder="search" />-->
+<!--				  <div class="input-group-append">-->
+<!--				    <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>-->
+<!--				  </div>-->
+<!--				</div>-->
+<!--		</form>-->
+<!--		</li>-->
+
+	</nav>
+
+</header>
+    <h1>
+        Nutritionist's Platform
+        <input type="search" id="search" placeholder="🔎 Search for nutritionist" style="font-size: 20px; text-align: center">
+    </h1>
+    <div class="nutritionist" data-name="Sanjeev Kapoor">
+        <img src="{% static 'nutritionist1.png' %}" alt="Sanjeev Kapoor">
+        <div class="nutritionist-info">
+            <h3>Sanjeev Kapoor</h3>
+            <div class="stars">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+            <button onclick= "location.href='{% url 'base:lobby' %}'">Request Consultation</button>
+        </div>
+        <button onclick="openModal('modal1')">View Profile</button>
+    </div>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <p style="text-align: right;"><button onclick="closeModal('modal1')">Close</button></p>
+            <table>
+            <tr><td>
+            <img src="{% static 'nutritionist1.png' %}" alt="Sanjeev Kapoor">
+        </td>
+            <div class="nutritionist-info">
+        <td><h3>Sanjeev Kapoor</h3>
+        <section>Sanjeev Kapoor is an Indian celebrity chef, entrepreneur and television personality. Kapoor hosted the TV show Khana Khazana, the longest running show of its kind in Asia which was broadcast in 120 countries and in 2010 had more than 500 million viewers.</section></td>
+        </tr>
+        </table>
+    </div>
+    </div>
+    <div class="nutritionist" data-name="Gordon Ramsay">
+        <img src="{% static 'nutritionist2.png' %}" alt="Gordon Ramsay">
+        <div class="nutritionist-info">
+            <h3>Gordon Ramsay</h3>
+            <div class="stars">
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+            </div>
+            <button onclick= "location.href='{% url 'base:lobby' %}'">Request Consultation</button>
+        </div>
+        <button onclick="openModal('modal2')">View Profile</button>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <p style="text-align: right;"><button onclick="closeModal('modal2')">Close</button></p>
+            <table>
+            <tr><td>
+            <img src="{% static 'nutritionist2.png' %}" alt="Gordon Ramsay">
+        <div class="nutritionist-info">
+        </td>
+        <td><h3>Gordon Ramsay</h3>
+        </div>
+        <section>Gordon James Ramsay OBE is a British celebrity chef, restaurateur, television presenter, and writer. His restaurant group, Gordon Ramsay Restaurants, was founded in 1997 and has been awarded seventeen Michelin stars overall and currently holds seven.</section></td>
+        </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('search').addEventListener('input', function(e) {
+            var searchVal = e.target.value.toLowerCase();
+            var trainers = document.getElementsByClassName('nutritionist');
+            for (var i = 0; i < trainers.length; i++) {
+                var name = trainers[i].getAttribute('data-name').toLowerCase();
+                if (name.indexOf(searchVal) !== -1) {
+                    trainers[i].style.display = '';
+                } else {
+                    trainers[i].style.display = 'none';
+                }
+            }
+        });
+
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function openChat(){
+            ;
+        }
+    </script>
+</body>
+</html>
+{% endblock %}

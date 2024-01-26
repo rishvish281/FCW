@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>Page 2</title>
+    <link rel="stylesheet" href="{% static 'assets/css/page6.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.chkvalues').click(function () {
+                var txt = "";
+                $('.chkvalues:checked').each(function () {
+                    txt += $(this).next().text().trim() + ", ";
+                });
+                txt = txt.substring(0, txt.length - 2);
+                $('#txtvalues').val(txt); // Corrected 'value' to 'val'
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="center">
+        <div class="header">
+            <h1>What's your current goal?</h1>
+            <div class="p">This will help us decide your mindset and work accordingly.</div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="flexCheckboxDefault1" name="goal"/>
+                <label class="form-check-label" for="flexCheckboxDefault1">
+                    Lose Weight
+                    <i class="fa-solid fa-weight-scale"></i>
+                </label>
+            </div>
+            <br><br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="flexCheckboxDefault2" name="goal"/>
+                <label class="form-check-label" for="flexCheckboxDefault2">
+                    Stay Fit
+                </label>
+            </div>
+            <br><br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="flexCheckboxDefault3" name="goal"/>
+                <label class="form-check-label" for="flexCheckboxDefault3">
+                    Gain Muscle Mass
+                </label>
+            </div>
+            <br><br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="flexCheckboxDefault4" name="goal"/>
+                <label class="form-check-label" for="flexCheckboxDefault4">
+                    Get Stronger
+                </label>
+            </div>
+            <br><br>
+            <input type="text" name="goal" id="txtvalues" readonly/>
+            <input type="submit" value="Insert Record" onclick="alert('Record Inserted Successfully')" />
+            <input type="button" value="Continue" onclick="goToPage()"/>
+
+            <div class="signup" value="Login">
+                Give yourself the ultimate gift of fitness.
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToPage() {
+            window.location.href = 'page7';
+        }
+    </script>
+</body>
+</html>

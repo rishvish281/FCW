@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="container my-4">
+	<li>
+		<form class="form-inline my-2 my-lg-0" action="/search">
+		      <div class="input-group">
+				  <input name="q" type="text" class="form-control" placeholder="Search for Events" />
+				  <div class="input-group-append">
+				    <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
+				  </div>
+				</div>
+		</form>
+		</li>
+	<!-- Featured Products -->
+	<h3 class="my-4 border-bottom pb-1">Brands</h3>
+	<div class="row">
+		{% if data %}
+			{% for brand in data %}
+			<div class="col-md-3 mb-4">
+				<div class="card shadow">
+				<a href="/brand-product-list/{{brand.id}}"><img src="/media/{{brand.image}}" class="card-img-top" alt="{{brand.title}}" /></a>
+				<div class="card-body">
+					<h6 class="card-text"><a href="#">{{brand.title}}</a></h6>
+				</div>
+				</div>
+			</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</main>
+{% endblock %}

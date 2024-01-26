@@ -1,0 +1,17 @@
+<style>
+	/* Define a custom class for setting the text color */
+.list-item-color {
+    color: black; /* Set the desired color value */
+}
+
+</style>
+<div class="list-group">
+    <a href="{% url 'my_dashboard' %}" class="list-group-item {% if request.path == '/my-dashboard' %}active {% endif %} list-item-color">Dashboard</a>
+    <a href="{% url 'edit-profile' %}" class="list-group-item {% if request.path == '/edit-profile' %}active {% endif %} list-item-color">Profile</a>
+    <a href="{% url 'my_orders' %}" class="list-group-item {% if request.path == '/my-orders' %}active {% endif %} list-item-color">Orders</a>
+    <a href="{% url 'my_wishlist' %}" class="list-group-item {% if request.path == '/my-wishlist' %}active {% endif %} list-item-color">Wishlist</a>
+    <a href="{% url 'my-reviews' %}" class="list-group-item {% if request.path == '/my-reviews' %}active {% endif %} list-item-color">My Reviews</a>
+<!--    <a href="{% url 'my-addressbook' %}" class="list-group-item {% if request.path == '/my-addressbook' %}active {% endif %} list-item-color">Address Book</a>-->
+    <a href="{% url 'password_change' %}" class="list-group-item {% if request.path == '/accounts/password_change/' %}active {% endif %} list-item-color">Password Change</a>
+    <a href="{% url 'logout' %}" class="text-danger list-group-item">Logout</a>
+</div>

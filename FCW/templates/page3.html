@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>Page3</title>
+    <link rel="stylesheet" href="{% static 'assets/css/page3.css' %}">
+</head>
+<body>
+    <div class="center">
+        <div class="header">
+            <h1>What's your age?</h1>
+            <p>Your age determines how much you should consume.</p>
+        </div>
+        <form method="post"> <!-- Assuming URL name is 'update_age' -->
+            {% csrf_token %}
+            <div class="container">            
+                <button type="button" onclick="increment()">+</button>
+                <h2 id="counting">{{ user_profile.age }}</h2>
+                <button type="button" onclick="decrement()">-</button>        
+            </div>
+            <input type="hidden" id="ageInput" name="age" value="{{ user_profile.age }}">
+            <input type="submit" value="Insert Record" onclick="alert('Record Inserted Successfully')" />
+            <br><br>
+            <input type="button" value="Continue" onclick="goToPage()"/>
+            <div class="signup" value="Login">
+                Fitness is not a destination. It is a way of life.
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToPage() {
+            window.location.href = 'page4';
+        }
+    </script>
+    <script>
+        let data = parseInt("{{ user_profile.age }}");
+
+        // Printing default value of data in h2 tag
+        document.getElementById("counting").innerText = data;
+
+        // Creation of increment function
+        function increment() {
+            data = data + 1;
+            document.getElementById("counting").innerText = data;
+            document.getElementById("ageInput").value = data;
+        }
+
+        // Creation of decrement function
+        function decrement() {
+            if (data > 0) {
+                data = data - 1;
+                document.getElementById("counting").innerText = data;
+                document.getElementById("ageInput").value = data;
+            }
+        }
+    </script>
+</body>
+</html>

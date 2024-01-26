@@ -1,0 +1,457 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free/css/all.min.css' %}" />
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bs4/bootstrap.min.css' %}" />
+
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+	<!-- Bootstrap 4 JS -->
+	<script type="text/javascript" src="{% static 'bs4/bootstrap.min.js' %}"></script>
+	<!-- CustomJs -->
+	<link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" />
+
+	<script type="text/javascript" src="{% static 'custom.js' %}"></script>
+
+	<!-- THIS IS THE OUR FRONT END  -->
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'fontawesome-free/css/all.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to top, #640D03, #090101);
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .trainer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            align-items: center;
+        }
+        .trainer-info {
+    flex-grow: 1 !important;
+    margin-left: 20px !important;
+}
+
+        button {
+            background: rgba(255, 255, 255, 0.171);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .stars {
+            display: flex;
+        }
+        .stars span {
+            margin-right: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            margin-bottom: 10px;
+            background: rgba(77, 77, 77, 0.458);
+            border-radius: 10px;
+        }
+        .modal-content {
+            background-color: linear-gradient(to top, #640D03, #090101);
+            background: linear-gradient(to top, #640D03, #090101);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+         #search {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h2 input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        a {
+            color: white;
+        }
+
+
+
+        .nav{
+    		display: justify;
+
+    	}
+
+        /* Styling for the Get-in-Touch dropdown */
+		.nav-item.dropdown {
+		  display: inline-block;
+		  position: relative;
+		}
+
+		.nav-item.dropdown .nav-link {
+		  color: white;
+		}
+
+		.nav-item.dropdown .dropdown-menu {
+		  display: none;
+		  position: absolute;
+		  background-color: #333;
+		  min-width: 10px;
+		}
+
+		.nav-item.dropdown:hover .dropdown-menu {
+		  display: block;
+		}
+
+
+
+		.nav-item.dropdown .dropdown-item:hover {
+		  background-color: #555;
+		}
+
+            /* Override left and right spacing for each nav item */
+        .header .navbar a {
+          margin-right: 15px; /* Adjust as needed for right spacing */
+          margin-left: 15px;  /* Adjust as needed for left spacing */
+        }
+
+        /* Override left and right spacing for dropdown items */
+        .header .navbar .dropdown-menu a {
+          margin-right: 0; /* Adjust as needed for right spacing */
+          margin-left: 0;  /* Adjust as needed for left spacing */
+        }
+
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 150px; /* Adjust the height as needed */
+      background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Initial gradient background */
+      background-size: cover;
+      transition: background 0.5s; /* Add smooth transition for the background */
+    }
+
+    /* Add some padding to create space when the header becomes static */
+    .content {
+      padding-top: 120px; /* Adjust the value based on the header height */
+    }
+
+    .navbar a,
+    .dropdown-item {
+        color: white !important;
+    }
+
+
+
+
+/* Add some basic styling to the messages */
+ul.messages {
+    list-style: none;
+    padding: 10px;
+}
+
+/* Style each message item */
+li.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Different styles based on message tags (e.g., success, error, info) */
+li.message.success {
+    background-color: #dff0d8; /* Greenish background for success messages */
+    color: #3c763d; /* Dark green text color */
+}
+
+li.message.error {
+    background-color: #f2dede; /* Reddish background for error messages */
+    color: #a94442; /* Dark red text color */
+}
+
+li.message.info {
+    background-color: #d9edf7; /* Bluish background for info messages */
+    color: #31708f; /* Dark blue text color */
+}
+
+
+    </style>
+    <style>
+
+
+    a {
+        color: #3498db !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+    }
+
+    a:hover {
+        color: #217dbb !important;
+    }
+</style>
+<style>
+    /* Add your CSS styles here */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #wrapper {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+
+</head>
+<div id="wrapper">
+<body>
+
+<header class="header" id="myHeader">
+
+	<a href="{% url 'home' %}" class="logo">FCW &nbsp;<span> FITNESS</span></a>
+
+	<nav class="navbar" style="color: white !important">
+
+		<a href="{% url 'home' %}" style="color: white">Home</a>
+
+
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Trainer Platform
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'trainers:add_trainer' %}">Add Trainer </a>
+					<a class="dropdown-item" href="{% url 'trainers:edit_profile' %}">Edit Trainer</a>
+
+		        	<a class="dropdown-item" href="{% url 'trainers:trainer_list' %}">View Trainer</a>
+
+		        </div>
+
+
+		</div>
+
+
+
+<!--		<li><a href="{% url 'counter:home' %}">CalorieApp</a></li>-->
+
+
+
+<!--        <li><a href="{% url 'myapp:index' %}">All Events</a></li>-->
+
+<!--        <li><a href="{% url 'category-list' %}">Browse Gyms</a></li>-->
+
+<!--        <li class="nav-item dropdown">-->
+<!--		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--		          <i class="fa fa-user"></i> Browse Gyms-->
+<!--		        </a>-->
+<!--		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--		        	<a class="dropdown-item" href="{% url 'category-list' %}">Location</a>-->
+<!--		        	<a class="dropdown-item" href="{% url 'brand-list' %}">Gym</a>-->
+<!--		        </div>-->
+<!--		</li>-->
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> Gym Platform
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'category-list' %}">Browse Gyms</a>
+		        	<a class="dropdown-item" href="{% url 'add_course' %}">Add Gyms</a>
+		        </div>
+
+
+		</div>
+
+        <div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> FCW features
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        	<a class="dropdown-item" href="{% url 'counter:home' %}">CalorieApp</a>
+		        	<a class="dropdown-item" href="{% url 'myapp:index' %}">All Events</a>
+                    <a class="dropdown-item" href="http://localhost:8501/">The Fitness Bot</a>
+		        </div>
+		</div>
+
+<!--        <div class="nav-item dropdown">-->
+<!--		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--		          <i class="fa fa-user"></i> Our Expert-->
+<!--		        </a>-->
+<!--		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--		        	<a class="dropdown-item" href="{% url 'nutrition' %}">Nutritionists</a>-->
+<!--		        	<a class="dropdown-item" href="{% url 'trainer' %}">Trainers</a>-->
+<!--		        </div>-->
+<!--		</div>-->
+
+
+
+<!--        <li><a href="http://localhost:8501">Bot</a></li>-->
+
+<!--        <li class="nav-item dropdown">-->
+<!--            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>-->
+<!--        </li>-->
+
+		<div class="nav-item dropdown">
+		        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          <i class="fa fa-user"></i> My Account
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        {% if user.is_authenticated %}
+		        	<a class="dropdown-item" href="{% url 'my_dashboard' %}">Dashboard</a>
+		        	<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>
+	        	{% else %}
+	        		<a class="dropdown-item" href="{% url 'login' %}">Login</a>
+		          <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>
+		        {% endif %}
+		        </div>
+		</div>
+
+<!--		<li>-->
+<!--		<form class="form-inline my-2 my-lg-0" action="/search">-->
+<!--		      <div class="input-group">-->
+<!--				  <input name="q" type="text" class="form-control" placeholder="search" />-->
+<!--				  <div class="input-group-append">-->
+<!--				    <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>-->
+<!--				  </div>-->
+<!--				</div>-->
+<!--		</form>-->
+<!--		</li>-->
+
+	</nav>
+
+</header>
+
+    <h2>
+        &nbsp; Trainer List
+    </h2>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+    <h2>
+        <input type="search" id="search" placeholder="Search for trainer">
+    </h2>
+    {% for trainer in trainers %}
+        <div class="trainer" data-name="{{ trainer.name }}">
+            <img src="{{ trainer.profile_picture.url }}" alt="{{ trainer.name }}">
+            <div class="trainer-info">
+                <h3>{{ trainer.name }}</h3>
+                <p>Specialization: {{ trainer.specialization }}</p>
+                <p>{{ trainer.bio }}</p>
+            </div>
+            <button onclick= "location.href='{% url 'base:lobby' %}'">Start Training</button> &nbsp;
+            <button onclick="openModal('modal{{ trainer.id }}')">View Profile</button>
+        </div>
+        <div id="modal{{ trainer.id }}" class="modal">
+            <div class="modal-content">
+                <p style="text-align: right;">
+                    <button onclick="closeModal('modal{{ trainer.id }}')">Close</button>
+                </p>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="{{ trainer.profile_picture.url }}" alt="{{ trainer.name }}">
+                        </td>
+                        <td>
+                            <div class="trainer-info">
+                                <h3>{{ trainer.name }}</h3>
+                                <p>Specialization: {{ trainer.specialization }}</p>
+                                <section>{{ trainer.bio }}</section>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        document.getElementById('search').addEventListener('input', function(e) {
+            var searchVal = e.target.value.toLowerCase();
+            var trainers = document.getElementsByClassName('trainer');
+            for (var i = 0; i < trainers.length; i++) {
+                var name = trainers[i].getAttribute('data-name').toLowerCase();
+                if (name.indexOf(searchVal) !== -1) {
+                    trainers[i].style.display = '';
+                } else {
+                    trainers[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

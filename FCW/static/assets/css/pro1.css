@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #640D03, #080101);
+}
+
+.profile-card {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: linear-gradient(#FFFD8A,#FF8B00);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image img {
+  width: 100px; /* Adjust the width and height as needed */
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-details h1 {
+  margin: 0;
+}
+
+.profile-info p {
+  margin-bottom: 10px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.follow-btn {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.view-profile-btn {
+  background-color: #2ecc71;
+  color: #fff;
+}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>Page 2</title>
+    <link rel="stylesheet" href="{% static 'assets/css/page2.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.chkvalues').click(function () {
+                var txt = "";
+                $('.chkvalues:checked').each(function () {
+                    txt += $(this).val() + ",";
+                });
+                txt = txt.substring(0, txt.length - 1);
+                $('#txtvalues').val(txt); // Corrected 'value' to 'val'
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="center">
+        <div class="header">
+            <h1>Choose your gender</h1>
+            <p>This will help us calculate your target weight.</p>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <label for="">
+                <br>
+                <input type="checkbox" value="male" name="gender" class="chkvalues"/>Male
+                <br><br>
+                <input type="checkbox" value="female" name="gender" class="chkvalues"/>Female
+                <br><br>
+                <input type="checkbox" value="neutral" name="gender" class="chkvalues"/>Gender Neutral
+                <br><br>
+            </label>
+            <input type="text" name="gender" id="txtvalues"/>
+            <input type="submit" value="Insert Record" onclick="alert('Record Inserted Successfully')" />
+            <input type="button" value="Continue" onclick="goToPage()"/>
+
+            <div class="signup" value="Login">
+                A healthy body leads to a healthy mind!
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToPage() {
+            window.location.href = 'page3';
+        }
+    </script>
+</body>
+</html>

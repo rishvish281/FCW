@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <title>Page 2</title>
+    <link rel="stylesheet" href="{% static 'assets/css/page7.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.chkvalues').click(function () {
+                var txt = "";
+                $('.chkvalues:checked').each(function () {
+                    txt += $(this).val() + ",";
+                });
+                txt = txt.substring(0, txt.length - 1);
+                $('#txtvalues').val(txt); // Set the selected values to the txtvalues field
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="center">
+        <div class="header">
+          <h1>Choose your training level.</h1>
+          <div class="p">This will help us set the intensity of your workout plan.</div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="beginnerCheckbox" name="training" value="Beginner">
+                <label class="form-check-label" for="beginnerCheckbox">
+                    Beginner(1-2 times per week)
+                </label>
+            </div>
+            <br><br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="intermediateCheckbox" name="training" value="Intermediate">
+                <label class="form-check-label" for="intermediateCheckbox">
+                    Intermediate(3-5 times per week)
+                </label>
+            </div>
+            <br><br>
+            <div class="form-check">
+                <input class="form-check-input chkvalues" type="checkbox" id="advancedCheckbox" name="training" value="Advanced">
+                <label class="form-check-label" for="advancedCheckbox">
+                    Advanced(more than 5 times per week)
+                </label>
+            </div>
+            <br><br>
+            <!-- Display selected values in a text field -->
+            <input type="text" name="training" id="txtvalues" readonly/>
+            <input type="submit" value="Insert Record" onclick="alert('Record Inserted Successfully')" />
+            <input type="button" value="Continue" onclick="goToPage()"/>
+  
+            <div class="signup" value="Login">
+                You're almost there.
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToPage() {
+            window.location.href = 'page8';
+        }
+    </script>
+</body>
+</html>

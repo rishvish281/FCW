@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+body{
+font-size: 20px;
+}
+  .add-panel {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .custom-form {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .custom-form label {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .custom-form input,
+  .custom-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .custom-form button {
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="add-panel">
+  <h1>Add Panel</h1>
+  <form method="post" enctype="multipart/form-data" class="custom-form">
+    {% csrf_token %}
+    {% for field in form %}
+      <label>{{ field.label_tag }}</label>
+      {{ field }}
+    {% endfor %}
+    <br><br>
+    <button type="submit">Save</button>
+  </form>
+</div>
+<br><br><br><br><br><br><br><br>
+{% endblock %}
